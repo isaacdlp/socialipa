@@ -1,28 +1,31 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Old 'SocialBot' version using Ruby instead of Python and Mechanize in the place of Selenium.
+Only supports Twitter, many functions don't work due to changes in their API.
 
-Things you may want to cover:
+## Sample Uses ##
 
-* Ruby version
+```
+rake twitter:unlock account='isaacdlp'
+rake twitter:unlock
+rake twitter:lock list='# all' silent='true'
 
-* System dependencies
+rake twitter:kill account='isaacdlp'
 
-* Configuration
+rake twitter:follow account='elizz_fernandes' list='# all' num='25'
+rake twitter:like tweet_id='840247770296508416' list='# all' num='15'
+rake twitter:retweet tweet_id='837422970410762241' list='# all' num='10' user_id='419675851' msg='Mola...'
 
-* Database creation
+rake twitter:bot account='isaacdlp'
+	list_id='740708344365764608'
+	mention_msg='% this is my custom message'
+	welcome_msg='Thanks %'
 
-* Database initialization
+rake twitter:reload account='isaacdlp'
 
-* How to run the test suite
+rake twitter:rates account='isaacdlp' study='isaacdlp @ all'
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+rake twitter:clean account='isaacdlp'
+rake twitter:clean account='isaacdlp' total='true'
+rake twitter:clean account='isaacdlp' no_reload='true' no_unfollow='true' no_unlike='true'
+```
