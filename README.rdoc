@@ -5,7 +5,6 @@ Only supports Twitter, many functions don't work due to changes in their API.
 
 ## Sample Uses ##
 
-```
 rake twitter:unlock account='isaacdlp'
 rake twitter:unlock
 rake twitter:lock list='# all' silent='true'
@@ -28,4 +27,3 @@ rake twitter:rates account='isaacdlp' study='isaacdlp @ all'
 rake twitter:clean account='isaacdlp'
 rake twitter:clean account='isaacdlp' total='true'
 rake twitter:clean account='isaacdlp' no_reload='true' no_unfollow='true' no_unlike='true'
-```
