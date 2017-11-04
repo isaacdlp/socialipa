@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tw_account_id: 1
+  concept: MyString
+  value: 9.99
+
+two:
+  tw_account_id: 1
+  concept: MyString
+  value: 9.99

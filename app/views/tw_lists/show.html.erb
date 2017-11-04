@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tw_list.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tw_list.description %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @tw_list.position %>
+</p>
+
+<% @tw_list_items = @tw_list.tw_list_items.paginate(page: params[:page], per_page: 100).order('created_at DESC') %>
+
+<p> <%= will_paginate @tw_list_items %> </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Date</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_list_items.each do |tw_list_item| %>
+      <tr>
+        <td><%= tw_list_item.item %></td>
+        <td><%= tw_list_item.created_at %></td>
+        <td><%= link_to 'Edit', edit_tw_list_item_path(tw_list_item) %></td>
+        <td><%= link_to 'Destroy', tw_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p> <%= will_paginate @tw_list_items %> </p>
+
+<%= link_to 'New Item', new_tw_list_item_path(tw_list_id: @tw_list) %> |
+<%= link_to 'Edit', edit_tw_list_path(@tw_list) %> |
+<%= link_to 'Back', 'javascript:history.back()' %> |
+<%= link_to 'Home', root_path %>

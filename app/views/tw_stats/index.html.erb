@@ -1,0 +1,30 @@
+<h1>Listing Stats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Study</th>
+      <th>Concept</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_stats.each do |tw_stat| %>
+      <tr>
+        <td><%= tw_stat.tw_study_id %></td>
+        <td><%= tw_stat.concept %></td>
+        <td><%= tw_stat.value %></td>
+        <td><%= link_to 'Show', tw_stat %></td>
+        <td><%= link_to 'Edit', edit_tw_stat_path(tw_stat) %></td>
+        <td><%= link_to 'Destroy', tw_stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stat', new_tw_stat_path %> |
+<%= link_to 'Home', root_path %>

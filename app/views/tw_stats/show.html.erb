@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Study:</strong>
+  <%= @tw_stat.tw_study_id %>
+</p>
+
+<p>
+  <strong>Concept:</strong>
+  <%= @tw_stat.concept %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @tw_stat.value %>
+</p>
+
+<%= link_to 'Edit', edit_tw_stat_path(@tw_stat) %> |
+<%= link_to 'Back', tw_stats_path %> |
+<%= link_to 'Home', root_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @tw_proxy.nickname %>
+</p>
+
+<p>
+  <strong>Host:</strong>
+  <%= @tw_proxy.host %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @tw_proxy.port %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @tw_proxy.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @tw_proxy.password %>
+</p>
+
+<%= link_to 'Edit', edit_tw_proxy_path(@tw_proxy) %> |
+<%= link_to 'Back', tw_proxies_path %> |
+<%= link_to 'Home', root_path %>

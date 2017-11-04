@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @tw_account.status %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @tw_account.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @tw_account.password %>
+</p>
+
+<p>
+  <strong>Agent:</strong>
+  <%= @tw_account.agent %>
+</p>
+
+<p>
+  <strong>Proxy:</strong>
+  <%= @tw_account.proxy %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @tw_account.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @tw_account.email %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tw_account.description %>
+</p>
+
+<%= link_to 'Edit', edit_tw_account_path(@tw_account) %> |
+<%= link_to 'Back', 'javascript:history.back()' %> |
+<%= link_to 'Home', root_path %>

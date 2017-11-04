@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nickname:</strong>
+  <%= @tw_phone.nickname %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @tw_phone.code %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @tw_phone.number %>
+</p>
+
+<%= link_to 'Edit', edit_tw_phone_path(@tw_phone) %> |
+<%= link_to 'Back', tw_phones_path %> |
+<%= link_to 'Home', root_path %>

@@ -1,0 +1,26 @@
+<h1>Listing Studies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_studies.each do |tw_study| %>
+      <tr>
+        <td><%= tw_study.name %></td>
+        <td><%= link_to 'Show', tw_study %></td>
+        <td><%= link_to 'Edit', edit_tw_study_path(tw_study) %></td>
+        <td><%= link_to 'Destroy', tw_study, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Study', new_tw_study_path %> |
+<%= link_to 'Home', root_path %>

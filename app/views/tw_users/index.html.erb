@@ -1,0 +1,35 @@
+<h1>Listing Users</h1>
+
+<p> <%= will_paginate @tw_users %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_users.each do |tw_user| %>
+      <tr>
+        <td><%= tw_user.userid %></td>
+        <td><%= tw_user.username %></td>
+        <td><%= tw_user.name %></td>
+        <td><image src='<%= tw_user.image_url %>'/></td>
+        <td width='250'><%= tw_user.description %></td>
+        <td><%= link_to 'Show', tw_user %></td>
+        <td><%= link_to 'Edit', edit_tw_user_path(tw_user) %></td>
+        <td><%= link_to 'Destroy', tw_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p> <%= will_paginate @tw_users %> </p>
+
+<%= link_to 'New User', new_tw_user_path %> |
+<%= link_to 'Home', root_path %>

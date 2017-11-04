@@ -1,0 +1,32 @@
+<h1>Listing Phones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nickname</th>
+      <th>Accounts</th>
+      <th>Code</th>
+      <th>Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_phones.each do |tw_phone| %>
+      <tr>
+        <td><%= tw_phone.nickname %></td>
+        <td><%= TwAccount.where('phone = (?)', tw_phone.nickname).count %></td>
+        <td><%= tw_phone.code %></td>
+        <td><%= tw_phone.number %></td>
+        <td><%= link_to 'Show', tw_phone %></td>
+        <td><%= link_to 'Edit', edit_tw_phone_path(tw_phone) %></td>
+        <td><%= link_to 'Destroy', tw_phone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone', new_tw_phone_path %> |
+<%= link_to 'Home', root_path %>

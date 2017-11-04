@@ -1,0 +1,29 @@
+<h1>Listing Items</h1>
+
+<p> <%= will_paginate @tw_list_items %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>List ID</th>
+      <th>Item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_list_items.each do |tw_list_item| %>
+      <tr>
+        <td><%= tw_list_item.tw_list_id %></td>
+        <td><%= tw_list_item.item %></td>
+        <td><%= link_to 'Show', tw_list_item %></td>
+        <td><%= link_to 'Edit', edit_tw_list_item_path(tw_list_item) %></td>
+        <td><%= link_to 'Destroy', tw_list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p> <%= will_paginate @tw_list_items %> </p>
+
+<%= link_to 'New Item', new_tw_list_item_path %> |
+<%= link_to 'Home', root_path %>

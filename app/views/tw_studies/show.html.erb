@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tw_study.name %>
+</p>
+
+<%
+  @tw_stats = @tw_study.tw_stats.paginate(page: params[:page], per_page: 100).order('concept DESC')
+  value_time = nil
+  time_total = @tw_stats.find_by_concept(:time_total)
+  value_time = time_total.value if time_total            # number of hours
+%>
+
+<p> <%= will_paginate @tw_stats %> </p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Concept</th>
+    <th>Value</th>
+    <th>Rate</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tw_stats.each do |tw_stat| %>
+      <tr>
+        <%
+          concept = tw_stat.concept
+          value = tw_stat.value
+          value_rate = nil
+          if value_time
+              value_rate = value / value_time
+              if concept.start_with?('time_')
+                value_rate = '%.2f' % (value_rate * 100)
+                value_rate = "#{value_rate} %"
+              else
+                value_rate = '%.2f' % (value_rate * 3600)
+                value_rate = "#{value_rate} u/h"
+              end
+          end
+          value = "#{'%.2f' % value} (#{distance_of_time_in_words(value)})" if concept.start_with?('time')
+        %>
+        <td><%= concept %></td>
+        <td><%= value %></td>
+        <td><%= value_rate %></td>
+        <td><%= link_to 'Edit', edit_tw_stat_path(tw_stat) %></td>
+        <td><%= link_to 'Destroy', tw_stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<p> <%= will_paginate @tw_stats %> </p>
+
+<%= link_to 'New Stat', new_tw_stat_path(tw_study_id: @tw_study) %> |
+<%= link_to 'Edit', edit_tw_study_path(@tw_study) %> |
+<%= link_to 'Back', tw_studies_path %>

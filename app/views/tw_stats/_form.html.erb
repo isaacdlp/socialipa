@@ -1,0 +1,29 @@
+<%= form_for(@tw_stat) do |f| %>
+  <% if @tw_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tw_stat.errors.count, "error") %> prohibited this tw_stat from being saved:</h2>
+
+      <ul>
+      <% @tw_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="display: none">
+    <%= f.label :tw_study_id %><br>
+    <%= f.number_field :tw_study_id %>
+  </div>
+  <div class="field">
+    <%= f.label :concept %><br>
+    <%= f.text_field :concept %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

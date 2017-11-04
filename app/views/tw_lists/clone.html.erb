@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clone List</h1>
+
+<%= form_tag(controller: :tw_lists, action: :clone, method: :post) do %>
+  <% unless @errors.empty? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@errors.count, "error") %> prohibited this operation:</h2>
+
+      <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  	<%= label_tag(:clone_name, "Clone list name:") %>
+  	<%= text_field_tag(:clone_name, "Clone of #{@tw_list.name}") %>	
+  </div>
+  <div class="field">
+  	Original list name: 
+  	<b><%= @tw_list.name %></b>	
+  </div>
+  <div class="field">
+  	<%= label_tag(:clone_merge, "Merge list name:") %>
+  	<%
+  	options = [["NONE", 0]]
+  	TwList.all.each do |item|
+  		if (item.name != @tw_list.name) 
+  			options.push [item.name, item.id]
+  		end
+  	end
+  	%>
+  	<%= select_tag(:clone_merge, options_for_select(options)) %>
+  </div>
+  <div class="field">
+  	<%= label_tag(:clone_op, "Merge operation:") %>
+  	<%= select_tag(:clone_op, options_for_select(["OR", "AND", "XOR"])) %>
+  </div>		
+  
+  <%= submit_tag("Clone List") %>
+<% end %>
+
+<p>
+	<%= link_to 'Back', 'javascript:history.back()' %> |
+  <%= link_to 'Home', root_path %>
+</p>

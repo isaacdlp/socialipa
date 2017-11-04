@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @tw_user.userid %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @tw_user.username %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tw_user.name %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @tw_user.image_url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tw_user.description %>
+</p>
+
+<%= link_to 'Edit', edit_tw_user_path(@tw_user) %> |
+<%= link_to 'Back', 'javascript:history.back()' %> |
+<%= link_to 'Home', root_path %>

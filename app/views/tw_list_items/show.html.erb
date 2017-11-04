@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>List ID:</strong>
+  <%= @tw_list_item.tw_list_id %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @tw_list_item.item %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @tw_list_item.created_at %>
+</p>
+
+<%= link_to 'Edit', edit_tw_list_item_path(@tw_list_item) %> |
+<%= link_to 'Back', 'javascript:history.back()' %> |
+<%= link_to 'Home', root_path %>

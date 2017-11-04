@@ -1,0 +1,46 @@
+<style>
+  tr.ok { }
+  tr.locked {
+    background-color: orange;
+  }
+  tr.unknown {
+    background-color: mediumpurple;
+  }
+  tr.suspended {
+    background-color: indianred;
+  }
+</style>
+
+<h1>Listing Accounts</h1>
+
+<p> <%= will_paginate @tw_accounts %> </p>
+<table>
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Proxy</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tw_accounts.each do |tw_account| %>
+      <tr class="<%= tw_account.status %>">
+        <td><a href="https://www.twitter.com/<%= tw_account.username %>" target="_blank"><%= tw_account.username %></a></td>
+        <td><%= tw_account.password %></td>
+        <td><%= tw_account.proxy %></td>
+        <td><%= tw_account.phone %></td>
+        <td><%= link_to 'Show', tw_account %></td>
+        <td><%= link_to 'Edit', edit_tw_account_path(tw_account) %></td>
+        <td><%= link_to 'Destroy', tw_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p> <%= will_paginate @tw_accounts %> </p>
+
+<%= link_to 'New Account', new_tw_account_path %> |
+<%= link_to 'Home', root_path %>
