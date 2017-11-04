@@ -3,7 +3,7 @@
 Old 'SocialBot' version using Ruby instead of Python and Mechanize in the place of Selenium.
 Only supports Twitter, many functions don't work due to changes in their API.
 
-## Sample Uses ##
+SAMPLE USES
 
 rake twitter:unlock account='isaacdlp'
 rake twitter:unlock
