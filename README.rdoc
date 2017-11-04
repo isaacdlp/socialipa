@@ -11,7 +11,7 @@ rake twitter:lock list='# all' silent='true'
 
 rake twitter:kill account='isaacdlp'
 
-rake twitter:follow account='elizz_fernandes' list='# all' num='25'
+rake twitter:follow account='carlosdoblado' list='# all' num='25'
 rake twitter:like tweet_id='840247770296508416' list='# all' num='15'
 rake twitter:retweet tweet_id='837422970410762241' list='# all' num='10' user_id='419675851' msg='Mola...'
 
